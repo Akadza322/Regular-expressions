@@ -18,7 +18,6 @@ def read_csv(file_name):
         contact_dict.append({})
         for key, val in zip(keys, vals):
             contact_dict[num].update({key: val})
-        #pprint(contacts_dict)
     return contact_dict
 
 
@@ -36,7 +35,6 @@ def name_fix(in_file):
         if len(split) > 1:
             a['firstname'] = split[0]
             a['surname'] = split[1]
-    #pprint(contacts_dict)
     return contact_dict
 
 
@@ -73,12 +71,10 @@ def merge_info(contact):
 
 def write_file(file_name, dicts):
     keys = list(dicts[0].keys())
-    # print(keys)
     with open(file_name, "w", encoding="utf8") as f:
         datawriter = csv.writer(f, delimiter=',')
         datawriter.writerow(keys)
         for d in dicts:
-            # for v in d.values():
             datawriter.writerow(d.values())
 
 
